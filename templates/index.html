@@ -6,7 +6,7 @@
 
 {% block nav %}
 
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default navbar-fixed-top" style="background-color:rgba(255, 255, 255, 0.7)">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
@@ -32,14 +32,14 @@
                     <a href="{{link}}">{{title}}</a>
                 </li>
                 {% endif %}
-            {% endfor %}                
+            {% endfor %}
             </ul>
         </div>
         <!-- /.navbar-collapse -->
     </div>
     <!-- /.container-fluid -->
 </nav>
-	
+
 {% endblock %}
 
 {% block header %}
@@ -49,17 +49,19 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12">
-                <!-- <img class="img-responsive" src="{{ SITEURL }}/{{ THEME_STATIC_DIR }}/images/header-bg.jpg" alt=""> -->
+                <img class="img-responsive" src="{{ SITEURL }}/images/pieds_cclfdy01.jpg" alt=""> <!--ccl-->
                 <div class="intro-text">
-                    <span class="name">{{SITENAME}}</span>
-                    <hr class="star-light">
-                    <span class="skills">{{SITESUBTITLE}}</span>
+                    <!--<span class="name">{{SITENAME}}</span>-->
+                    <!--<hr class="star-light">-->
+                    <span class="skills">{{SITESUBTITLE1}}</span>
+					</br>
+					<span class="skills">{{SITESUBTITLE2}}</span>
                 </div>
             </div>
         </div>
     </div>
 </header>
-	
+
 {% endblock %}
 
 {% block grid %}
@@ -69,15 +71,16 @@
     <div class="container">
         <div class="row">
             <div class="col-lg-12 text-center">
-                <h2>{{PORTFOLIO}}</h2>
-                <hr class="star-primary">
+                <!--<h2>{{PORTFOLIO}}</h2>-->
+				<h2></h2>
+                <br/><!--<hr class="star-primary">-->
             </div>
         </div>
 
         <div class="row">
         {% if articles %}
-        	{% for article in articles_page.object_list %}         	
-    
+        	{% for article in articles_page.object_list %}
+
 	        <div class="col-sm-4 portfolio-item">
 	        	    <a href="#portfolioModal{{loop.index}}" class="portfolio-link" data-toggle="modal">
 	        	        <div class="caption">
@@ -90,14 +93,46 @@
 	        	</div>
 	        {% endfor %}
         {% endif %}
-            
+
         </div>
     </div>
 </section>
 
-	
-{% endblock %}
 
+
+<!-- Notes Grid Section
+<section id="notes">
+    <div class="container" style="background-color:rgba(150,150)">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h2>{{NOTES}}</h2>
+
+            </div>
+        </div>
+
+        <div class="row">
+        {% if articles %}
+        	{% for article in articles_page.object_list %}
+
+	        <div class="col-sm-4 portfolio-item">
+	        	    <a href="#portfolioModal{{loop.index}}" class="portfolio-link" data-toggle="modal">
+	        	        <div class="caption">
+	        	            <div class="caption-content">
+	        	                <i class="fa fa-search-plus fa-3x"></i>
+	        	            </div>
+	        	        </div>
+	        	        <img src="{{ SITEURL }}/images/portfolio/{{article.image}}" class="img-responsive" alt="">
+	        	    </a>
+	        	</div>
+	        {% endfor %}
+        {% endif %}
+
+        </div>
+    </div>
+</section>
+-->
+
+{% endblock %}
 
 
 {% block contact %}
@@ -106,8 +141,8 @@
 	    <div class="container">
 	        <div class="row">
 	            <div class="col-lg-12 text-center">
-	                <h2>Contact Me</h2>
-	                <hr class="star-primary">
+	                <!--<h2>Contact Us</h2>-->
+				</br><!--<hr class="star-primary">-->
 	            </div>
 	        </div>
 	        <div class="row">
@@ -118,29 +153,29 @@
 						{% for field in CONTACT_FIELDS %}
 							<div class="row control-group">
 							    <div class="form-group col-xs-12 floating-label-form-group controls">
-							
-								{% if field[1] == 'textarea' %}		
+
+								{% if field[1] == 'textarea' %}
 
 							        <label>{{field[0]}}</label>
 							        <textarea rows="5" class="form-control" placeholder="{{field[0]}}" id="{{field[2]}}" required data-validation-required-message="{{field[3]}}"></textarea>
 							        <p class="help-block text-danger"></p>
-									
+
 								{% else %}
-									
+
 							        <label>{{field[0]}}</label>
 							        <input type="{{field[1]}}" class="form-control" placeholder="{{field[0]}}" id="{{field[2]}}" required data-validation-required-message="{{field[3]}}">
 							        <p class="help-block text-danger"></p>
-									 
+
 								{% endif %}
 
-								
-							
+
+
 							    </div>
 							</div>
-							
+
 						{% endfor %}
 
-	                   
+
 	                    <br>
 	                    <div id="success"></div>
 	                    <div class="row">
@@ -153,7 +188,7 @@
 	        </div>
 	    </div>
 	</section>
-{% endblock %}	
+{% endblock %}
 
 
 
@@ -172,26 +207,38 @@
 			            <div class="row">
 			                <div class="col-lg-8 col-lg-offset-2">
 			                    <div class="modal-body">
-			                        <h2>{{article.title}}</h2>
+			                        <h2 style="text-align:center">{{article.title}}</h2>
 			                        <hr class="star-primary">
+									<div class="info">
+								        {{ article.date.strftime("%b %d, %Y") }} &nbsp;&middot;&nbsp;
+										<a href="{{ SITEURL }}/{{ article.author}}">by {{ article.author }}</a>  &nbsp;&middot;&nbsp;
+										{% if article.tags %} Tags: {% for t in article.tags %} &nbsp;
+								        <a href="{{ SITEURL }}/{{ t.url }}" class="tags{% if tag and tag.name == t.name %} selected{% endif %}">{{ t }}</a> {% endfor %} {% endif %}
+								    </div>
+									<p></p>
 			                        <img src="{{ SITEURL }}/images/portfolio/{{article.image}}" class="img-responsive img-centered" alt="">
 			                        <p>{{article.content}}</p>
-			                        <ul class="list-inline item-details">
+
+									<!--ccl: commented-->
+			                        <!--<ul class="list-inline item-details">
 			                            <li>Client:
 			                                <strong><a href="{{article.client_link}}">{{article.client}}</a>
 			                                </strong>
-			                            </li>
-			                            <!-- 
+			                            </li>-->
+			                            <!--
 <li>Date:
 			                                <strong><a href="http://startbootstrap.com">{{article.date}}</a>
 			                                </strong>
 			                            </li>
  -->
-			                            <li>Service:
+			                            <!--<li>Service:
 			                                <strong><a href="http://startbootstrap.com">{{article.service}}</a>
 			                                </strong>
 			                            </li>
-			                        </ul>
+			                        </ul>-->
+									<!--ccl-->
+
+
 			                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
 			                    </div>
 			                </div>
@@ -203,6 +250,6 @@
 	{% endif %}
 
 	<!-- Portfolio Modals -->
-	
-	
+
+
 {% endblock %}
