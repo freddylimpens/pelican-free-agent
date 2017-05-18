@@ -37,9 +37,26 @@ $('.navbar-collapse ul li a').click(function() {
 });
 
 
+
+
 $(document).ready(function() {
         // put all your jQuery goodness in here.
         document.getElementById('focusme').focus();
+        // **** Isotope hooks **** //
+        $grid = $(".grid").isotope({
+            "itemSelector": ".grid-item", 
+            "masonry": 
+                {"column-width" : ".grid-item"}    
+        });
+        // # filter items on button click
+        $('.filters-select').on( 'click', 'a', function() {
+            // var $target = $( event.currentTarget );
+            $('.filters-select .selected').removeClass('selected');
+            $(this).toggleClass('selected');
+            
+            var filterValue = $(this).attr('data-filter');
+            $grid.isotope({ filter: filterValue });
+        });
     });
 
 

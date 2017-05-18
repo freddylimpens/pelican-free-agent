@@ -68,20 +68,37 @@
 
 <!-- Portfolio Grid Section -->
 <section id="portfolio">
+	
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <!--<h2>{{PORTFOLIO}}</h2>-->
-				<h2></h2>
-                <br/><!--<hr class="star-primary">-->
-            </div>
-        </div>
+		<div class="filters filters-select">
+			Tags : 
+			<a class="button" data-filter="*">all</a>
+			&middot;
+			{% for tag in tags %}
+				{% if loop.index > 1 %}&middot;{% endif %}  <a class="button" data-filter=".{{tag[0].name}}">{{tag[0].name}}</a>
+			{% endfor %}
+			&nbsp;
+			&nbsp;
+			Authors :
+			<a class="button" data-filter="*">all</a>
+			&middot;
+			{% for author in authors %}
+				{% if loop.index > 1 %}&middot;{% endif %} <a class="button" data-filter=".{{author[0].name}}">{{author[0].name}}</a>
+			{% endfor%}
+		</div>
+    	<div class="grid">
+	        <div class="row">
+	            <div class="col-lg-12 text-center">
+	                <!--<h2>{{PORTFOLIO}}</h2>-->
+					<h2></h2>
+	                <br/><!--<hr class="star-primary">-->
+	            </div>
+	        </div>
 
-        <div class="row">
-        {% if articles %}
-        	{% for article in articles_page.object_list %}
-
-	        <div class="col-sm-4 portfolio-item">
+	        <div class="row">
+	        {% if articles %}
+	        	{% for article in articles_page.object_list %}
+		        <div class="col-sm-4 portfolio-item grid-item {{ article.author }} {% if article.tags %}{% for t in article.tags %} {{t}} {% endfor %}{% endif %} ">
 	        	    <a href="#portfolioModal{{loop.index}}" class="portfolio-link" data-toggle="modal">
 	        	        <div class="caption">
 	        	            <div class="caption-content">
@@ -90,11 +107,12 @@
 	        	        </div>
 	        	        <img src="{{ SITEURL }}/images/portfolio/{{article.image}}" class="img-responsive" alt="">
 	        	    </a>
-	        	</div>
-	        {% endfor %}
-        {% endif %}
+		        </div>
+		        {% endfor %}
+	        {% endif %}
 
-        </div>
+	        </div>
+		</div>
     </div>
 </section>
 

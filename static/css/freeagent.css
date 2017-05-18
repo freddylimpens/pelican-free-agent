@@ -227,6 +227,26 @@ section.success2 {
     }
 }
 
+/*** portfolio section ***/
+
+/* filters */
+.filters{
+    text-align: center;
+    padding: 1em;
+}
+
+.filters a.button{
+    cursor: pointer;
+}
+
+a.button:hover{
+    
+}
+
+a.button.selected{
+    font-weight: bold;
+}
+
 #portfolio .portfolio-item {
     right: 0;
     margin: 0 0 15px;
@@ -476,3 +496,5 @@ footer .footer-below {
     -ms-transform: rotate(90deg);
     transform: rotate(90deg);
 }
+
+
