@@ -44,19 +44,23 @@ $(document).ready(function() {
         document.getElementById('focusme').focus();
         // **** Isotope hooks **** //
         $grid = $(".grid").isotope({
-            "itemSelector": ".grid-item", 
-            "masonry": 
-                {"column-width" : ".grid-item"}    
+            "itemSelector": ".grid-item",
+            "masonry":
+                {"column-width" : ".grid-item"}
         });
         // # filter items on button click
         $('.filters-select').on( 'click', 'a', function() {
             // var $target = $( event.currentTarget );
             $('.filters-select .selected').removeClass('selected');
             $(this).toggleClass('selected');
-            
+
             var filterValue = $(this).attr('data-filter');
             $grid.isotope({ filter: filterValue });
         });
+
+        $('.email').click(function() {
+            login = $(this).html().replace('<span class="iamnotaat"></span>', '@')
+            window.location.href = 'mailto:' + login + 'limpica.net';
+            console.log("hoock");
+        });
     });
-
-
