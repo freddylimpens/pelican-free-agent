@@ -43,10 +43,14 @@ $(document).ready(function() {
         // put all your jQuery goodness in here.
         document.getElementById('focusme').focus();
         // **** Isotope hooks **** //
-        $grid = $(".grid").isotope({
-            "itemSelector": ".grid-item",
-            "masonry":
-                {"column-width" : ".grid-item"}
+        $grid = $(".grid");
+        // layout Masonry after each image loads
+        $grid.imagesLoaded().progress( function() {
+            $grid.isotope({
+                "itemSelector": ".grid-item",
+                "masonry":
+                  {"column-width" : ".grid-item"}
+            });
         });
         // # filter items on button click
         $('a.filter').on( 'click', function() {
