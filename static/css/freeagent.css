@@ -204,7 +204,8 @@ section {
 
 section h2 {
     margin: 0;
-    font-size: 3em;
+    font-size: 2em;
+    text-align: center;
 }
 
 section.success1 {
@@ -231,8 +232,19 @@ section.success2 {
 
 /* filters */
 .filters{
-    text-align: center;
+    display: table;
     padding: 1em;
+    width: 100%;
+}
+
+.tags.left {
+    display: table-cell;
+    text-align: left;
+}
+
+.authors.right {
+    display: table-cell;
+    text-align: right;
 }
 
 .filters a.button{
@@ -286,7 +298,7 @@ a.button.selected{
 }
 
 #portfolio .portfolio-item .portfolio-link .caption .caption-content i {
-    margin-top: -12px;
+    margin-top: 15px;
 }
 
 #portfolio .portfolio-item .portfolio-link .caption .caption-content h3,
