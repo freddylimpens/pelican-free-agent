@@ -252,7 +252,7 @@ section.success2 {
 }
 
 a.button:hover{
-    
+
 }
 
 a.button.selected{
@@ -509,4 +509,17 @@ footer .footer-below {
     transform: rotate(90deg);
 }
 
+/* Contacts */
+.email:after {
+    content: 'limpica.net';
 
+}
+.email {
+    display: inline-block;
+    font-weight: bold;
+    cursor: pointer;
+}
+.iamnotaat:after{
+    content: '@';
+
+}
