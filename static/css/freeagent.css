@@ -36,7 +36,7 @@ h4,
 h5,
 h6 {
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Lucida Grande","Lucida Sans Unicode", Arial, sans-serif;/*Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
     /*font-weight: 700; ccl*/
 }
 
@@ -124,7 +124,7 @@ header .intro-text {
 header .intro-text .name {
     display: block;
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Lucida Grande","Lucida Sans Unicode", Arial, sans-serif;/*Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
     font-size: 2em;
     font-weight: 700; /*ccl*/
     padding-top: 70px; /*ccl*/
@@ -176,7 +176,7 @@ header .intro-text .skills {
 
 .navbar {
     text-transform: uppercase;
-    font-family: Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-family: "Lucida Grande","Lucida Sans Unicode", Arial, sans-serif;/*Montserrat,"Helvetica Neue",Helvetica,Arial,sans-serif;*/
     font-weight: 700;
 }
 
@@ -214,8 +214,12 @@ section.success1 {
 }
 
 section.success2 {
-    color: #fff;
-    background: #cccac5;
+    /*color: #fff;
+    background: #cccac5;*/
+    border: 1px solid #b7b7b7;
+    padding: 25px;
+    margin: 25px;
+    color: #b7b7b7;
 }
 
 @media(max-width:767px) {
