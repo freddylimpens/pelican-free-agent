@@ -74,18 +74,18 @@
     <div class="container">
 		<div class="filters filters-select">
 			<span class="tags left">
-				<a class="button" data-filter="*">all</a>
+				<a class="button filter" data-filter="*">all</a>
 				&middot;
 				{% for tag in tags %}
-					{% if loop.index > 1 %}&middot;{% endif %}  <a class="button" data-filter=".{{tag[0].name}}">{{tag[0].name}}</a>
+					{% if loop.index > 1 %}&middot;{% endif %}  <a class="button filter" data-filter=".{{tag[0].name}}">{{tag[0].name}}</a>
 				{% endfor %}
 			</span>
 
 			<span class="authors right">
-				<a class="button" data-filter="*">all</a>
+				<a class="button filter" data-filter="*">all</a>
 				&middot;
 				{% for author in authors %}
-					{% if loop.index > 1 %}&middot;{% endif %} <a class="button" data-filter=".{{author[0].name}}">{{author[0].name}}</a>
+					{% if loop.index > 1 %}&middot;{% endif %} <a class="button filter" data-filter=".{{author[0].name}}">{{author[0].name}}</a>
 				{% endfor%}
 			</span>
 
@@ -211,9 +211,13 @@
 			                        <hr class="star-primary">
 									<div class="info">
 								        {{ article.date.strftime("%b %d, %Y") }} &nbsp;&middot;&nbsp;
-										<a href="{{ SITEURL }}/{{ article.author}}">by {{ article.author }}</a>  &nbsp;&middot;&nbsp;
+										<!-- <a href="{{ SITEURL }}/{{ article.author}}">by {{ article.author }}</a>   -->
+										by {% for a in article.authors %}{%if loop.index > 1%}&nbsp;&middot;&nbsp;{%endif%}<a href="#portfolio" class="button filter" data-filter=".{{a}}">{{a}}</a>
+										{%endfor%}
+										&nbsp;&middot;&nbsp;
 										{% if article.tags %} Tags: {% for t in article.tags %} &nbsp;
-								        <a href="{{ SITEURL }}/{{ t.url }}" class="tags{% if tag and tag.name == t.name %} selected{% endif %}">{{ t }}</a> {% endfor %} {% endif %}
+										<a href="#portfolio" class="button filter" data-filter=".{{t}}">{{t}}</a>
+										{% endfor %} {% endif %}
 								    </div>
 									<p></p>
 			                        <img src="{{ SITEURL }}/images/portfolio/{{article.image}}" class="img-responsive img-centered" alt="">

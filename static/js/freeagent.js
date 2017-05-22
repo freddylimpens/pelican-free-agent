@@ -43,18 +43,25 @@ $(document).ready(function() {
         // put all your jQuery goodness in here.
         document.getElementById('focusme').focus();
         // **** Isotope hooks **** //
-        $grid = $(".grid").isotope({
-            "itemSelector": ".grid-item",
-            "masonry":
-                {"column-width" : ".grid-item"}
+        $grid = $(".grid");
+        // layout Masonry after each image loads
+        $grid.imagesLoaded().progress( function() {
+            $grid.isotope({
+                "itemSelector": ".grid-item",
+                "masonry":
+                  {"column-width" : ".grid-item"}
+            });
         });
         // # filter items on button click
-        $('.filters-select').on( 'click', 'a', function() {
-            // var $target = $( event.currentTarget );
-            $('.filters-select .selected').removeClass('selected');
-            $(this).toggleClass('selected');
-
+        $('a.filter').on( 'click', function() {
+            // close modal if open
+            $('.modal').modal('hide');
+            // toggle selected for all filter with same name
+            $('.filter.selected').removeClass('selected');
             var filterValue = $(this).attr('data-filter');
+                // console.log("Filter value : ", filterValue);
+            $('a[data-filter="'+filterValue+'"]').toggleClass('selected');
+            // apply filter
             $grid.isotope({ filter: filterValue });
         });
 
