@@ -530,3 +530,12 @@ footer .footer-below {
     content: '@';
 
 }
+
+/* About us */
+
+#about img{
+    border: 0.5px solid #bbbbbb;
+    -webkit-border-radius: 10px; 
+    -moz-border-radius: 10px; 
+    border-radius: 10px;
+}
