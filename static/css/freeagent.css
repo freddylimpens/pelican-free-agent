@@ -206,6 +206,7 @@ section h2 {
     margin: 0;
     font-size: 2em;
     text-align: center;
+    letter-spacing: 10px;
 }
 
 section.success1 {
@@ -214,8 +215,8 @@ section.success1 {
 }
 
 section.success2 {
-    /*color: #fff;
-    background: #cccac5;*/
+    /*color: #fff;*/
+    background: #f8f8f8;
     /*border: 1px solid #b7b7b7;*/
     margin: 25px;
     color: #b7b7b7;
@@ -525,6 +526,7 @@ footer .footer-below {
     display: inline-block;
     font-weight: bold;
     cursor: pointer;
+    letter-spacing: 5px;
 }
 .iamnotaat:after{
     content: '@';
@@ -535,7 +537,7 @@ footer .footer-below {
 
 #about img{
     border: 0.5px solid #bbbbbb;
-    -webkit-border-radius: 10px; 
-    -moz-border-radius: 10px; 
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
     border-radius: 10px;
 }
