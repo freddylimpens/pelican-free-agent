@@ -37,8 +37,6 @@ $('.navbar-collapse ul li a').click(function() {
 });
 
 
-
-
 $(document).ready(function() {
         // put all your jQuery goodness in here.
         document.getElementById('focusme').focus();
@@ -68,6 +66,5 @@ $(document).ready(function() {
         $('.email').click(function() {
             login = $(this).html().replace('<span class="iamnotaat"></span>', '@')
             window.location.href = 'mailto:' + login + 'limpica.net';
-            console.log("hoock");
         });
     });

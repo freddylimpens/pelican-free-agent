@@ -1,5 +1,3 @@
-
-
 {% extends "base.html" %}
 
 {% block title %}
@@ -7,7 +5,6 @@
 {% endblock %}
 
 {% block nav %}
-
 <nav class="navbar navbar-default navbar-fixed-top" style="background-color:rgba(255, 255, 255, 0.7)">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -41,11 +38,9 @@
     </div>
     <!-- /.container-fluid -->
 </nav>
-
 {% endblock %}
 
 {% block header %}
-
 <!-- Header -->
 <header>
     <div class="container">
@@ -63,11 +58,9 @@
         </div>
     </div>
 </header>
-
 {% endblock %}
 
 {% block grid %}
-
 <!-- Portfolio Grid Section -->
 <section id="portfolio">
 	<h2>Our projects</h2>
@@ -120,77 +113,30 @@
 		</div>
     </div>
 </section>
-
-
-
-<!-- Notes Grid Section
-<section id="notes">
-    <div class="container" style="background-color:rgba(150,150)">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <h2>{{NOTES}}</h2>
-
-            </div>
-        </div>
-
-        <div class="row">
-        {% if articles %}
-        	{% for article in articles_page.object_list %}
-
-	        <div class="col-sm-4 portfolio-item">
-	        	    <a href="#portfolioModal{{loop.index}}" class="portfolio-link" data-toggle="modal">
-	        	        <div class="caption">
-	        	            <div class="caption-content">
-	        	                <i class="fa fa-search-plus fa-3x"></i>
-	        	            </div>
-	        	        </div>
-	        	        <img src="{{ SITEURL }}/images/portfolio/{{article.image}}" class="img-responsive" alt="">
-	        	    </a>
-	        	</div>
-	        {% endfor %}
-        {% endif %}
-
-        </div>
-    </div>
-</section>
--->
-
 {% endblock %}
-
 
 {% block contact %}
 	<!-- Contact Section -->
 	<section id="contact">
 	    <div class="container">
 	        <div class="row">
-	            <div class="col-lg-12 text-center">
+	            <div class="col-lg-8 col-lg-offset-2 text-center">
 	                <h2>Contact Us</h2>
-				</br><!--<hr class="star-primary">-->
+					</br>	
+					<a href="https://www.openstreetmap.org/?mlat=50.6332&amp;mlon=3.0612#map=14/50.6332/3.0612&amp;layers=H" target="_blank"><img src="{{ SITEURL }}/images/portfolio/map.png" class="img-responsive img-centered" alt=""></a>
 	            </div>
 	        </div>
-				<img src="{{ SITEURL }}/images/portfolio/map.png" class="img-responsive img-centered" alt="">
-				<!--<iframe width=100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" class="img-responsive"  src="http://www.openstreetmap.org/export/embed.html?bbox=3.0320549011230473%2C50.61510759762177%2C3.09041976928711%2C50.651365217365274&amp;layer=hot&amp;marker=50.63323990324134%2C3.061237335205078" style="border: 0.5px solid #bbbbbb; display: block; margin-left: auto; margin-right: auto;"></iframe>
-				<small><a href="https://www.openstreetmap.org/?mlat=50.6332&amp;mlon=3.0612#map=14/50.6332/3.0612&amp;layers=H">View Larger Map</a></small>-->
-
+				
 			<br/>
 			<div style="text-align:center">
-			<!--<button type="button" data-target="" class="email">
-				freddy<span class="iamnotaat"></span>
-			</button>-->
-			<a href="" target="_top" class="email">freddy<span class="iamnotaat"></span></a>
-
-			<!--<button type="button" data-target="" class="email">
-				cecile<span class="iamnotaat"></span>
-			</button>-->
-
-			&nbsp;&nbsp;-&nbsp;&nbsp; <a href="" target="_top" class="email">cecile<span class="iamnotaat"></span></a>
-		</div>
+				<a href="#contact" target="_top" class="email">freddy<span class="iamnotaat"></span></a>
+				&nbsp;&nbsp;-&nbsp;&nbsp; 
+				<a href="#contact" target="_top" class="email">cecile<span class="iamnotaat"></span></a>
+			</div>
 	    </div>
 	</section>
 
 {% endblock %}
-
-
 
 {% block modals %}
 	{% if articles %}
@@ -223,26 +169,6 @@
 			                        <img src="{{ SITEURL }}/images/portfolio/{{article.image}}" class="img-responsive img-centered" alt="">
 			                        <p>{{article.content}}</p>
 
-									<!--ccl: commented-->
-			                        <!--<ul class="list-inline item-details">
-			                            <li>Client:
-			                                <strong><a href="{{article.client_link}}">{{article.client}}</a>
-			                                </strong>
-			                            </li>-->
-			                            <!--
-<li>Date:
-			                                <strong><a href="http://startbootstrap.com">{{article.date}}</a>
-			                                </strong>
-			                            </li>
- -->
-			                            <!--<li>Service:
-			                                <strong><a href="http://startbootstrap.com">{{article.service}}</a>
-			                                </strong>
-			                            </li>
-			                        </ul>-->
-									<!--ccl-->
-
-
 			                        <button type="button" class="btn btn-default" data-dismiss="modal"><i class="fa fa-times"></i> Close</button>
 			                    </div>
 			                </div>
@@ -252,8 +178,5 @@
 			</div>
 		{% endfor %}
 	{% endif %}
-
-	<!-- Portfolio Modals -->
-
-
+<!-- Portfolio Modals -->
 {% endblock %}
