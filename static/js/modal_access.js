@@ -8,13 +8,28 @@ Then stick this bit of Javascript at at the end of your document:
  */
 
  $(document).ready(function() {
-   var url = window.location.href;
-   for (var i = 0; i < 9; i++) {
-       console.log(i);
-       if (url.indexOf('?w='+i) != -1) {
-         $("#portfolioModal"+i).modal('show');
-       }
-   }
+   /* When accessing a specific work via a modal, the url is updated*/
+   $(window.location.hash).modal('show');
+   $('a[data-toggle="modal"]').click(function(){
+      window.location.hash = $(this).attr('href');
+   });
+   function revertToOriginalURL() {
+        var original = window.location.href.substr(0, window.location.href.indexOf('#'))
+        history.replaceState({}, document.title, original);
+    }
+
+    $('.modal').on('hidden.bs.modal', function () {
+        revertToOriginalURL();
+    });
+
+    /* If using a specific url related to a work, we access the article directly*/
+    var url = window.location.href;
+    for (var i = 0; i < 40; i++) {
+        //console.log(i);
+        if (url.indexOf('portfolioModal'+i) != -1) {
+          $("#portfolioModal"+i).modal('show');
+        }
+    }
 
  });
 

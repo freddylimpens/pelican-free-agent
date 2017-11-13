@@ -98,6 +98,7 @@
 	        	{% for article in articles_page.object_list %}
 		        <div class="col-sm-4 portfolio-item grid-item {% for a in article.authors %} {{ a }} {% endfor %} {% if article.tags %}{% for t in article.tags %} {{t}} {% endfor %}{% endif %} ">
 	        	    <a href="#portfolioModal{{loop.index}}" class="portfolio-link" data-toggle="modal">
+					<!--<a href="#" class="portfolio-link" data-target="#portfolioModal{{loop.index}}" data-toggle="modal" data-remote="http://example.com/whatever">-->
 	        	        <div class="caption">
 	        	            <div class="caption-content">
 								<h4>{{article.shorttitle}}</h4>
