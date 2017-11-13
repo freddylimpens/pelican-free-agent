@@ -18,18 +18,18 @@ Then stick this bit of Javascript at at the end of your document:
         history.replaceState({}, document.title, original);
     }
 
-    $('.modal').on('hidden.bs.modal', function () {
-        revertToOriginalURL();
-    });
-
     /* If using a specific url related to a work, we access the article directly*/
     var url = window.location.href;
     for (var i = 0; i < 40; i++) {
         //console.log(i);
         if (url.indexOf('portfolioModal'+i) != -1) {
-          $("#portfolioModal"+i).modal('show');
+          $(window.location.hash).modal('show');
         }
     }
+
+    $('.modal').on('hidden.bs.modal', function () {
+        revertToOriginalURL();
+    });
 
  });
 
