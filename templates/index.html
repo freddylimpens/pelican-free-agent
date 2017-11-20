@@ -65,13 +65,13 @@
 <!-- Portfolio Grid Section -->
 <section id="portfolio">
 	<h2>projects</h2>
-    <div class="container">
+    <div class="container" >
 		<div class="filters filters-select">
 			<span class="tags left">
-				<a class="button filter" data-filter="*">all</a>
+				<a href="" class="button filter" data-filter="*">all</a>
 				&middot;
 				{% for tag in tags %}
-					{% if loop.index > 1 %}&middot;{% endif %}  <a class="button filter" data-filter=".{{tag[0].name}}">{{tag[0].name}}</a>
+					{% if loop.index > 1 %}&middot;{% endif %}  <a href="#{{tag[0].name}}" class="button filter" data-filter=".{{tag[0].name}}">{{tag[0].name}}</a>
 				{% endfor %}
 			</span>
 
@@ -79,7 +79,7 @@
 				<a class="button filter" data-filter="*">all</a>
 				&middot;
 				{% for author in authors %}
-					{% if loop.index > 1 %}&middot;{% endif %} <a class="button filter" data-filter=".{{author[0].name}}">{{author[0].name}}</a>
+					{% if loop.index > 1 %}&middot;{% endif %} <a href="#{{author[0].name}}" class="button filter" data-filter=".{{author[0].name}}">{{author[0].name}}</a>
 				{% endfor%}
 			</span>
 
